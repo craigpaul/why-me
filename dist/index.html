@@ -13,7 +13,7 @@
 
             <h2>Introduction</h2>
 
-            <p>My name is <a href="https://twitter.com/thecraigpaul">Craig Paul</a> 👋 and I am a Staff Software Engineer living in Martensville, Saskatchewan. Before I get into who I am and what excites me about Tailwind Labs (hint... a lot), let's address the elephant in the room. Although I am <span class="italic">just</span> outside your desired timezone (it's {time} my time now and {time} your time), I'm more than willing to adjust my working hours to suit what works best with the team. Now, with that out of the way, let me tell you why I think we would work well together.</p>
+            <p>My name is <a href="https://twitter.com/thecraigpaul">Craig Paul</a> 👋 and I am a Staff Software Engineer living in Martensville, Saskatchewan. Before I get into who I am and what excites me about Tailwind Labs (hint... a lot), let's address the elephant in the room. Although I am <span class="italic">just</span> outside your desired timezone (it's <span id="my-time"></span> my time now and <span id="your-time"></span> your time), I'm more than willing to adjust my working hours to suit what works best with the team. Now, with that out of the way, let me tell you why I think we would work well together.</p>
 
             <h2>Personal Background</h2>
 
@@ -50,4 +50,26 @@
             <p>That was a lot of information, but I want to thank you for reading through it. I hope it has moved the needle in some fashion, at least enough to keep the conversation going. I look forward to your response and any feedback you may have!</p>
         </main>
     </body>
+
+    <script>
+        const times = {
+            mine: document.getElementById('my-time'),
+            yours: document.getElementById('your-time'),
+        };
+
+        function tick() {
+            const date = new Date();
+
+            times.mine.innerText = new Intl.DateTimeFormat('en-CA', { hour: 'numeric', minute: 'numeric', timeZone: 'America/Regina' }).format(date);
+            times.yours.innerText = new Intl.DateTimeFormat('en-CA', { hour: 'numeric', minute: 'numeric' }).format(date);
+        }
+
+        tick();
+
+        setTimeout(() => {
+            tick();
+
+            setInterval(tick, 60000);
+        }, (60 - new Date().getSeconds()) * 1000);
+    </script>
 </html>
