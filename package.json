@@ -1,6 +1,12 @@
 {
   "name": "why-me",
   "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "build": "node copy.js && tailwindcss -i ./src/styles.css -o ./dist/styles.css",
+    "production": "npm run build -- --minify",
+    "watch": "npm run build -- --watch"
+  },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.12",
     "tailwindcss": "^3.4.3"
