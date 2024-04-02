@@ -5,9 +5,47 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="./styles.css" rel="stylesheet">
     </head>
-    <body>
-        <main>
-            <!-- Add content here -->
+    <body class="bg-neutral-50">
+        <main class="prose prose-green lg:prose-xl max-w-3xl mx-auto my-12 px-6 lg:px-0">
+            <h1>Hello there!</h1>
+
+            <h2>Introduction</h2>
+
+            <p>My name is <a href="https://twitter.com/thecraigpaul">Craig Paul</a> 👋 and I am a Staff Software Engineer living in Martensville, Saskatchewan. Before I get into who I am and what excites me about Tailwind Labs (hint... a lot), let's address the elephant in the room. Although I am <span class="italic">just</span> outside your desired timezone (it's {time} my time now and {time} your time), I'm more than willing to adjust my working hours to suit what works best with the team. Now, with that out of the way, let me tell you why I think we would work well together.</p>
+
+            <h2>Personal Background</h2>
+
+            <p>I am 33 years old, married to my amazing wife Megan and we have two amazing daughters Madilyn and Eleanor. I started learning software development when I was around 10 years old slicing up Photoshop designs into tables with Dreamweaver (way back in the IE 6 days 😭). I quickly moved into learning the basics of how to use HTML, CSS, and JavaScript. I followed that up with learning PHP. A few years later, a pivotal moment arrived when I discovered Laravel ❤️, which kickstarted my career.</p>
+
+            <h2>Career Journey</h2>
+
+            <p>After going through a couple of uninspiring roles, I co-founded a company called <a href="https://townfolio.co/on/cambridge/demographics">Townfolio</a>, where we developed a platform for economic developers to showcase their community data. Through this experience, I gained invaluable insights into business and leadership, leading a small yet mighty team 💪. Following the successful growth and eventual sale of Townfolio, I sought new challenges, which led me to Coconut Software, where I've been for over 7 years now.</p>
+
+            <h2>Technological Evolution</h2>
+
+            <p>At that time, it was also a smaller company (about 10 people, 4 of which were developers) and we've grown to more than 10x that amount since. We started with a CakePHP application (with little to no tests 😬) that had a mix of frontend technologies such as BackboneJS, Marionette, and good old jQuery. I immediately began advocating some change (at the time, CakePHP had a strong "stale" vibe with very little hope of ever seeing security updates). We began an incremental migration towards Laravel, with proper testing being put in place as we went, and have been using it ever since. As part of that migration, we needed a way to integrate our email service provider with Laravel since at the time it wasn't supported. I created a package called <a href="https://github.com/craigpaul/laravel-postmark">laravel-postmark</a> to nicely integrate into Laravel without any need for code changes (it even got <a href="https://postmarkapp.com/blog/how-to-send-transactional-emails-with-laravel-php-framework">featured in a blog</a> post from Postmark).</p>
+
+            <p>Next up we took a look at our frontend technology stack and knew something needed to change. We eventually went all in on React (for a multitude of reasons, but mostly business/hiring-related). As I mentioned earlier with the backend, we also had no tests for the frontend. At the time, the "<span class="line-through">best</span>only" option available was Enzyme (this was in "before times" when Testing Library wasn't released) with Jest, so we got to work with that, but it quickly showed its flaws. Luckily for everyone, Testing Library was released a little while after, which I quickly (and successfully) advocated for adopting.</p>
+
+            <p>The last piece of the puzzle was needing some sort of component library. At the time, we had a designer on staff who was (a little bit too much) into Material Design. He strongly pushed for using <a href="https://mui.com/">Material UI</a>. This allowed developers to move a little faster and worked fine... until it didn't 😱. A small but growing group of us in R&D had a strong desire to start pushing a developing a more cohesive brand and experience within our product and that wasn't going to be possible using off-the-shelf libraries. Together with our lead designer, I began putting together a proposal to build our own design system/component library to replace Material UI. I hope we can guess what library is being used to style those components 😉. After we had received approval I immediately got to work. This was probably one of the projects that has most excited me over the years here as it is what allowed me to introduce Tailwind CSS and TypeScript to our tech stack (it was also our first foray into the world of accessibility, which is now part of our everyday life). There is a public Storybook that shows <a href="https://coconutcalendar.github.io/">all of the available components</a> if you're interested in taking a look (note that some components look similar to Material UI on purpose as it was a migration strategy).</p>
+
+            <h2>Project Highlights</h2>
+
+            <p>Since then, I've worked on a few more interesting projects, notably a real-time communication product (think Zoom, Google Meet, etc) that tightly integrates into our core offering. This was a greenfield project, which allowed me the flexibility to use the tools I wanted from the start (TypeScript and Tailwind CSS 😍). It introduced a new way of thinking for me while building it as I had never really built any sort of "multi-player" style application (I got **intimately** familiar with WebSockets and WebRTC). A little while after the launch of this project, I started receiving push-back from our CFO regarding the choice of using a service to provide the server portion of the peer-to-peer communication (audio, video, and data transfer). While I was able to eventually prove that it was more cost-effective to use a service, this conflict was also what led to me first learning Rust as I thought it might be a more effective language compared to our go-to backend language, PHP, to build out some (if not all) of the server-side capabilities needed for managing the necessary communication protocols. Although it turned out not to be necessary, I'm glad I was able to learn such a fascinating language in the end.</p>
+
+            <p>Following up on that, I moved into a more tooling-oriented space for a while. Up to this point, we had been very reliant on Docker (containers) in general for running the majority of our workloads, including things like static analysis, linting, and compilation. At least, most developers were using containers for these purposes and as you can imagine, that was **painfully** slow. With a wide range of skill levels in play, I wanted to come up with some way of giving every developer an easier path to unlocking faster ways of performing those tasks. This meant having that tooling exist on your local machine. To accomplish this, I wrote a CLI called <a href="https://palm.coconut.tools/">Palm</a> (you might recognize elements of that landing page 😉) which allowed for a unified interface for installing one or more versions of the languages/tools we typically used (PHP, NodeJS, Composer and Go) among other functions specific to our day to day workflows (of course, since then, Laravel Herd has come out, which does everything we needed anyway). This project in particular got me thinking/researching a lot about what "good DX" looks like and was a fantastic learning experience.</p>
+
+            <h2>Leadership Experience</h2>
+
+            <p>Over the last 7 years, I've directly led a few different teams in a team lead/tech lead fashion. Since becoming a Staff Software Engineer a while back I've moved into more of a technical leadership role across all the various product teams, being involved heavily in architectural and technical planning for all major planned work going forward while at the same time coming up with and pushing forward my own goals for improving our offerings.</p>
+
+            <h2>Technical Writing</h2>
+
+            <p>While I don't have a large amount of public-facing technical writing, I can point to two specific (but older) examples. We have <a href="https://developers.coconutsoftware.com">public documentation regarding our REST API</a> that was mainly written by me (about 6 years ago now 👴). It's very targeted towards engineers at financial institutions, so it's kind of a bland read. I also wrote a <a href="https://github.com/craigpaul/test-driven-development">small-ish project</a> a few years ago to help teach junior/intern developers about test-driven development by walking them through building a project in that manner (which btw, is in dire need of an update 😬).</p>
+
+            <h2>Conclusion</h2>
+
+            <p>That was a lot of information, but I want to thank you for reading through it. I hope it has moved the needle in some fashion, at least enough to keep the conversation going. I look forward to your response and any feedback you may have!</p>
         </main>
     </body>
 </html>
